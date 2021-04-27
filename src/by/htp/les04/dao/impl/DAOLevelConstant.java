@@ -1,7 +1,7 @@
 package by.htp.les04.dao.impl;
 
 public interface DAOLevelConstant {
-	String URL = "jdbc:mysql://127.0.0.1/news_management?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
+	String URL = "jdbc:mysql://127.0.0.1/news_management_hib?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC";
 	String USER = "root"; 
 	String PASSWORD = "7105713)#TA";
 	String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
