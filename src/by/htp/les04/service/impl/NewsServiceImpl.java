@@ -10,8 +10,7 @@ import by.htp.les04.service.NewsService;
 import by.htp.les04.service.ServiceException;
 
 public class NewsServiceImpl implements NewsService {
-
-
+	
 	@Override
 	public List<News> takeAll() throws ServiceException {
 

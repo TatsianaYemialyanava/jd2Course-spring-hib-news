@@ -3,14 +3,36 @@ package by.htp.les04.bean;
 import java.io.Serializable;
 import java.time.LocalDate;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="news")
 public class News implements Serializable {
 	private static final long serialVersionUID = -6457546508943071215L;
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="id")
 	private int id;
+	
+	@Column(name="title")
 	private String title;
+	
+	@Column(name="brief")
 	private String brief;
+	
+	@Column(name="content")
 	private String content;
+	
+	@Column(name="date")
 	private LocalDate date;
+
+	@Column(name="status")
 	private String status;
 	
 	public News() {}
