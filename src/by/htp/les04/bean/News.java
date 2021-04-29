@@ -2,6 +2,7 @@ package by.htp.les04.bean;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -30,7 +31,7 @@ public class News implements Serializable {
 	private String content;
 	
 	@Column(name="date")
-	private LocalDate date;
+	private LocalDateTime date;
 
 	@Column(name="status")
 	private String status;
@@ -44,7 +45,7 @@ public class News implements Serializable {
 		this.setBrief(brief);
 	}
 		
-	public News(int id, String title,  String brief, String content, LocalDate date) {
+	public News(int id, String title,  String brief, String content, LocalDateTime date) {
 		super();
 		this.setId(id);
 		this.title = title;
@@ -85,14 +86,6 @@ public class News implements Serializable {
 		this.content = content;
 	}
 
-	public LocalDate getDate() {
-		return date;
-	}
-
-	public void setDate(LocalDate date) {
-		this.date = date;
-	}
-
 	public String getStatus() {
 		return status;
 	}
@@ -101,7 +94,13 @@ public class News implements Serializable {
 		this.status = status;
 	}
 	
-	
+	public LocalDateTime getDate() {
+		return date;
+	}
+
+	public void setDate(LocalDateTime date) {
+		this.date = date;
+	}
 		
 	@Override
 	public int hashCode() {

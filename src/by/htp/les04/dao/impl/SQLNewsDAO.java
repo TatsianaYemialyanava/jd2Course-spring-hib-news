@@ -1,27 +1,16 @@
 package by.htp.les04.dao.impl;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import by.htp.les04.bean.News;
 import by.htp.les04.dao.DAOException;
 import by.htp.les04.dao.NewsDAO;
 import by.htp.les04.dao.connectionPool.MYSQLDriverLoader;
-import by.htp.les04.dao.connectionPool.Pool;
-
-import static by.htp.les04.dao.impl.DAOLevelConstant.*;
 
 @Repository
 @Transactional()
@@ -51,42 +40,22 @@ public class SQLNewsDAO implements NewsDAO  {
 	
 	@Override
 	public void updateNews(int id, String title, String brief, String content) throws DAOException {
-		Connection con = null;
-		Statement st = null;
-
-		try {
-			con = Pool.getConnection();
-			st = con.createStatement();
-			String updateNews = String.format(UPDATE_NEWS_TEMPLATE, title, brief, content, id);
-			st.executeUpdate(updateNews);
-			
-		}catch (SQLException e) {
-			throw new DAOException("can't update the news: DB error", e);
-		}finally {
-				if(con != null) {
-					Pool.returnConnection(con);
-				}
-		}
+		Session currentSession = sessionFactory.getCurrentSession();
+		News theNews = new News();
+		theNews.setId(id);
+		theNews.setTitle(title);
+		theNews.setBrief(brief);
+		theNews.setContent(content);
+		theNews.setDate(java.time.LocalDateTime.now());
+		theNews.setStatus("active");
+		currentSession.saveOrUpdate(theNews);
 	}
-
+	
 	@Override
 	public void deleteNews(int id) throws DAOException {
-		Connection con = null;
-		Statement st = null;
-				
-		try {
-			con = Pool.getConnection();
-			st = con.createStatement();
-			String query = String.format(DELETE_NEWS_TEMPLATE, id);
-			st.executeUpdate(query);
-			
-		}catch (SQLException e) {
-			throw new DAOException("can't delete the news: DB error", e);
-		}finally {
-				if(con != null) {
-					Pool.returnConnection(con);
-				}
-		}
-		
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query theQuery = currentSession.createQuery("update News set status = 'not active' where id=:newsId");
+		theQuery.setParameter("newsId", id);
+		theQuery.executeUpdate();		
 	}
 }

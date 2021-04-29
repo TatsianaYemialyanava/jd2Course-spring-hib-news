@@ -13,4 +13,6 @@ public interface NewsDAO {
 
 	void deleteNews(int id) throws DAOException;
 
+	
+
 }
