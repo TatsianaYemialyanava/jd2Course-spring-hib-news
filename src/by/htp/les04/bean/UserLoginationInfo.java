@@ -1,13 +1,17 @@
 package by.htp.les04.bean;
 
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 public class UserLoginationInfo implements Serializable { 
-
 	private static final long serialVersionUID = -2966210719118673257L;
 
 	
 	private String login;
+	
+	
 	private String password;
 	
 	public UserLoginationInfo() {

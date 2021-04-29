@@ -11,7 +11,7 @@ public final class DAOProvider {
 	
 	public static final DAOProvider instance = new DAOProvider();
 	
-	private final UserDAO userDAO = new SQLUserDAO();
+	private static UserDAO userDAO;
 	
 	private static NewsDAO newsDAO;
 	
@@ -19,6 +19,12 @@ public final class DAOProvider {
 	public void temporaryInit(NewsDAO newsDAO) {
 		System.out.println("Spring configured NewsDAO for DAOProvider");
 		DAOProvider.newsDAO = newsDAO;
+	}
+	
+	@Autowired
+	public void temporaryInitUser(UserDAO userDAO) {
+		System.out.println("Spring configured UserDAO for DAOProvider");
+		DAOProvider.userDAO = userDAO;
 	}
 	
 	private DAOProvider() {
