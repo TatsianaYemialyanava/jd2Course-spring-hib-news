@@ -37,49 +37,16 @@ public class SQLNewsDAO implements NewsDAO  {
 	@Override
 	public List<News> all() throws DAOException {
 		Session currentSession = sessionFactory.getCurrentSession();
-		
 		Query<News> theQuery = currentSession.createQuery("from News where status = 'active'", News.class);
-
 		List<News> news = theQuery.getResultList();
-				
 		return news;
 	}
 	
-	
-
 	@Override
 	public News getOne(int id) throws DAOException {
-		Connection con = null;
-		Statement st = null;
-		ResultSet rs = null;
-		News result = null;
-
-		try {
-			con = Pool.getConnection();
-			st = con.createStatement();
-			String query = String.format(TAKE_ONE_NEWS_TEMPLATE, id);
-			rs = st.executeQuery(query);
-
-
-			while(rs.next()) {
-				int idFromDB = rs.getInt(ID_PARAM);
-				String title = rs.getString(TITLE);
-				String brief = rs.getString(BRIEF);
-				String content = rs.getString(CONTENT);
-				Date date = rs.getDate(DATE);
-				result = new News(idFromDB, title, brief, content, date.toLocalDate());
-
-			}
-
-		}catch (SQLException e) {
-			throw new DAOException("one news not received: DB error", e);
-		}finally {
-				if(con != null) {
-					Pool.returnConnection(con);
-				}
-		}
-
-		return result;
+		Session currentSession = sessionFactory.getCurrentSession();
+		News theNews = currentSession.get(News.class, id);
+		return theNews;
 	}
 	
 	@Override
