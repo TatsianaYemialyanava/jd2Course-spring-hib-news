@@ -1,20 +1,18 @@
 package by.htp.les04.service.impl;
 
 import by.htp.les04.bean.User;
-
 import by.htp.les04.dao.DAOException;
-import by.htp.les04.dao.DAOProvider;
 import by.htp.les04.dao.UserDAO;
 import by.htp.les04.service.ServiceException;
 import by.htp.les04.service.UserService;
 import static by.htp.les04.service.impl.validatorIncomingData.ValidationDataForAuthorisation.*;
 import static by.htp.les04.service.impl.validatorIncomingData.ValidationDataForRegistration.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class UserServiceImpl implements UserService {
+	
 	@Autowired
 	private UserDAO userDAO;
 
@@ -44,7 +42,7 @@ public class UserServiceImpl implements UserService {
 		String email = userInfo.getEmail();
 		String login = userInfo.getEmail();
 		String password = userInfo.getPassword();
-		
+
 		if (!validateDataForRegistration(name, surname, email, login, password)) {
 			throw new ServiceException("incorrect data entered");
 		}

@@ -10,15 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import by.htp.les04.bean.News;
 import by.htp.les04.dao.DAOException;
 import by.htp.les04.dao.NewsDAO;
-import by.htp.les04.dao.connectionPool.MYSQLDriverLoader;
 
 @Repository
 @Transactional()
 public class SQLNewsDAO implements NewsDAO  {
 	
-	static {
-		MYSQLDriverLoader.getInstance();
-	}
+	
 	
 	@Autowired
 	private SessionFactory sessionFactory;

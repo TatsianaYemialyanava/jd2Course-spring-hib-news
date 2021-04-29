@@ -9,15 +9,12 @@ import org.springframework.transaction.annotation.Transactional;
 import by.htp.les04.bean.User;
 import by.htp.les04.dao.DAOException;
 import by.htp.les04.dao.UserDAO;
-import by.htp.les04.dao.connectionPool.MYSQLDriverLoader;
 
 @Repository
 @Transactional()
 public class SQLUserDAO implements UserDAO {
 
-	static {
-		MYSQLDriverLoader.getInstance();
-	}
+
 	
 	@Autowired
 	private SessionFactory sessionFactory;
