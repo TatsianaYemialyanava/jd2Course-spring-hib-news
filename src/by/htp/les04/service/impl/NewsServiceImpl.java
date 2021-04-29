@@ -2,6 +2,7 @@ package by.htp.les04.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import by.htp.les04.bean.News;
@@ -13,13 +14,13 @@ import by.htp.les04.service.ServiceException;
 
 @Service
 public class NewsServiceImpl implements NewsService {
+	@Autowired
+	private NewsDAO newsDAO;
 	
 	@Override
 	public List<News> takeAll() throws ServiceException {
 
-		DAOProvider provider = DAOProvider.getInstance();
-		NewsDAO newsDAO = provider.getNewsDAO();
-
+		
 		List<News> news;
 
 		try {
@@ -32,9 +33,7 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public News getOne(int id) throws ServiceException {
-		DAOProvider provider = DAOProvider.getInstance();
-		NewsDAO newsDAO = provider.getNewsDAO();
-
+		
 		News result = null;
 		
 		try {
@@ -48,8 +47,6 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public void updateNews(int id, String title, String brief, String content) throws ServiceException {
-		DAOProvider provider = DAOProvider.getInstance();
-		NewsDAO newsDAO = provider.getNewsDAO();
 		
 		try {
 			newsDAO.updateNews(id, title, brief, content);
@@ -63,8 +60,6 @@ public class NewsServiceImpl implements NewsService {
 
 	@Override
 	public void deleteNews(int id) throws ServiceException {
-		DAOProvider provider = DAOProvider.getInstance();
-		NewsDAO newsDAO = provider.getNewsDAO();
 		
 		try {
 			newsDAO.deleteNews(id);
