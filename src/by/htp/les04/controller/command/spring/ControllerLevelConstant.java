@@ -1,4 +1,4 @@
-package by.htp.les04.controller.command.impl;
+package by.htp.les04.controller.command.spring;
 
 public interface ControllerLevelConstant {
 	//PARAMS
@@ -41,7 +41,7 @@ public interface ControllerLevelConstant {
 	String REQUESTDISPATCHER_FROM_GO_TO_EDIT_PAGE_TO_EDIT_PAGE = "/WEB-INF/jsp/edit_page.jsp";
 	String REQUESTDISPATCHER_FROM_GO_TO_ERROR_PAGE_TO_ERROR_PAGE = "/WEB-INF/jsp/error_page.jsp";
 	String REQUESTDISPATCHER_FROM_GO_TO_FULL_NEWS_PAGE_TO_FUII_NEWS_PAGE = "/WEB-INF/jsp/full_news_page.jsp";
-	String REQUESTDISPATCHER_FROM_GO_TO_INDEX_PAGE_TO_MAIN_INDEX = "/WEB-INF/jsp/main_index.jsp";
+	String REQUESTDISPATCHER_FROM_GO_TO_INDEX_PAGE_TO_MAIN_INDEX = "main_index";
 	String REQUESTDISPATCHER_FROM_GO_TO_MAIN_PAGE_TO_MAIN = "/WEB-INF/jsp/main.jsp";
 	String REQUESTDISPATCHER_FROM_GO_TO_REGISTRATION_PAGE_TO_REGISTRATION = "/WEB-INF/jsp/registration.jsp";
 		
