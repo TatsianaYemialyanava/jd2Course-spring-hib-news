@@ -10,8 +10,6 @@ public class UserLoginationInfo implements Serializable {
 
 	
 	private String login;
-	
-	
 	private String password;
 	
 	public UserLoginationInfo() {

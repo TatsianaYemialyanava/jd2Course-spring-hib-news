@@ -2,6 +2,8 @@ package by.htp.les04.service.impl;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
 import by.htp.les04.bean.News;
 import by.htp.les04.dao.DAOException;
 import by.htp.les04.dao.DAOProvider;
@@ -9,6 +11,7 @@ import by.htp.les04.dao.NewsDAO;
 import by.htp.les04.service.NewsService;
 import by.htp.les04.service.ServiceException;
 
+@Service
 public class NewsServiceImpl implements NewsService {
 	
 	@Override
