@@ -2,12 +2,15 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/main_index.css" />
+<link type="text/css" rel="stylesheet"
+	href="${pageContext.request.contextPath}/css/main_index.css" />
 <style>
 input {
 	width: 20%;
@@ -17,6 +20,7 @@ input {
 	border: 2px solid brown;
 	border-radius: 4px;
 }
+
 input[type=submit] {
 	width: 10%;
 	border: 2px solid brown;
@@ -27,18 +31,30 @@ input[type=submit] {
 <fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
 <fmt:setBundle basename="localization.interface" var="interfaceBundle" />
 
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru" var="ru_button" />
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en" var="en_button" />
-<fmt:message bundle="${interfaceBundle}" key="registration.name" var="name" />
-<fmt:message bundle="${interfaceBundle}" key="registration.surname" var="surname" />
-<fmt:message bundle="${interfaceBundle}" key="registration.email" var="email" />
-<fmt:message bundle="${interfaceBundle}" key="registration.login" var="regLogin" />
-<fmt:message bundle="${interfaceBundle}" key="registration.login.information" var="regLoginInfo" />
-<fmt:message bundle="${interfaceBundle}" key="registration.password" var="regPassword" />
-<fmt:message bundle="${interfaceBundle}" key="registration.password.information" var="regPasswordInfo" />
-<fmt:message bundle="${interfaceBundle}" key="registration.button.save" var="regSave" />
-<fmt:message bundle="${interfaceBundle}" key="fullNews.button.backToMainPage" var="backToMainPage" />
-<fmt:message bundle="${interfaceBundle}" key="index.contacts" var="contacts" />
+<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru"
+	var="ru_button" />
+<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en"
+	var="en_button" />
+<fmt:message bundle="${interfaceBundle}" key="registration.name"
+	var="name" />
+<fmt:message bundle="${interfaceBundle}" key="registration.surname"
+	var="surname" />
+<fmt:message bundle="${interfaceBundle}" key="registration.email"
+	var="email" />
+<fmt:message bundle="${interfaceBundle}" key="registration.login"
+	var="regLogin" />
+<fmt:message bundle="${interfaceBundle}"
+	key="registration.login.information" var="regLoginInfo" />
+<fmt:message bundle="${interfaceBundle}" key="registration.password"
+	var="regPassword" />
+<fmt:message bundle="${interfaceBundle}"
+	key="registration.password.information" var="regPasswordInfo" />
+<fmt:message bundle="${interfaceBundle}" key="registration.button.save"
+	var="regSave" />
+<fmt:message bundle="${interfaceBundle}"
+	key="fullNews.button.backToMainPage" var="backToMainPage" />
+<fmt:message bundle="${interfaceBundle}" key="index.contacts"
+	var="contacts" />
 </head>
 <body>
 	<div class="header" align="center" style="font-size: 200%">
@@ -46,30 +62,65 @@ input[type=submit] {
 	</div>
 
 	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="ru" /> 
-		<input type="hidden" name="commandRedirect" value="command=registration" /> 
-		<input type="submit" value="${ru_button}" /> <br />
+		<input type="hidden" name="command" value="localization" /> <input
+			type="hidden" name="language" value="ru" /> <input type="hidden"
+			name="commandRedirect" value="command=registration" /> <input
+			type="submit" value="${ru_button}" /> <br />
 	</form>
 
 	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="en" /> 
-		<input type="hidden" name="commandRedirect" value="command=registration" /> 
-		<input type="submit" value="${en_button}" /> <br />
+		<input type="hidden" name="command" value="localization" /> <input
+			type="hidden" name="language" value="en" /> <input type="hidden"
+			name="commandRedirect" value="command=registration" /> <input
+			type="submit" value="${en_button}" /> <br />
 	</form>
-				
-	<c:if test="${param.message != 'null'}">
-		<div align="center">			
-      	<font  color="green" >	
-        	<c:out value="${param.message}" />
-    	</font>
-		</div>
-	</c:if>	
-   
-    <br/>
 
-	<form style="text-align: center" action="Controller" method="post">
+	<c:if test="${param.message != 'null'}">
+		<div align="center">
+			<font color="green"> <c:out value="${param.message}" />
+			</font>
+		</div>
+	</c:if>
+
+	<br />
+	<div id="container">
+
+		<form:form action="Controller?command=savenewuser" modelAttribute="user" method="POST">
+			<form:hidden path="idUser" />
+
+
+			<label>First name:</label><br>
+			<form:input path="name" />
+
+			<br>
+
+			<label>Last name:</label><br>
+			<form:input path="surname" />
+
+			<br>
+
+			<label>Email:</label><br>
+			<form:input path="email" />
+
+			<br>
+
+			<label>Login:</label><br>
+			<form:input path="login" />
+
+			<br>
+
+
+			<label>Password:</label><br>
+			<form:input path="password" />
+			<br>
+
+			<label></label>
+			<input type="submit" value="Save" class="save" />
+
+		</form:form>
+	</div>
+
+	<!-- <form style="text-align: center" action="Controller" method="post">
 		<input type="hidden" name="command" value="savenewuser" />
 		<p><c:out value="${name}" />:</p>
 		<input type="text" name="name" value="" />
@@ -82,16 +133,24 @@ input[type=submit] {
 		<p title="<c:out value="${regPasswordInfo}" />"><c:out value="${regPassword}" />:</p>
 		<input type="password" name="password" value=""> <br /> 
 		<input type="submit" value="${regSave}" /> <br />
-	</form>
+	</form>-->
 
-	<div align="center">
+	<div style=""></div>
+
+	<p>
+		<a href="gotomainpage">Back</a>
+	</p>
+
+
+	<!--<div align="center">
 		<form action="Controller" method="get">
-			<input type="hidden" name="command" value="gotomainpage" /> 
-			<input type="submit" value="${backToMainPage}" />
+			<input type="hidden" name="command" value="gotomainpage" /> <input
+				type="submit" value="${backToMainPage}" />
 		</form>
-	</div>
+	</div>-->
 
-	<div class="footer" style="height: 10%; position: absolute; bottom: 0px;">
+	<div class="footer"
+		style="height: 10%; position: absolute; bottom: 0px;">
 		<h2>
 			<c:out value="${contacts}" />
 			: tatsiana88_88@tut.by

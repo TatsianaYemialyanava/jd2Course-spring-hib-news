@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import by.htp.les04.bean.News;
 import by.htp.les04.service.NewsService;
 import by.htp.les04.service.ServiceException;
-import static by.htp.les04.controller.command.impl.ControllerLevelConstant.*;
+import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 
 @Controller
 @RequestMapping("/Controller")
