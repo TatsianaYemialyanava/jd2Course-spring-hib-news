@@ -138,7 +138,7 @@ input[type=submit] {
 	<div style=""></div>
 
 	<p>
-		<a href="gotomainpage">Back</a>
+		<a href="Controller?command=gotoindexpage">Back</a>
 	</p>
 
 
