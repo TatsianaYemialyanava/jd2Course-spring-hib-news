@@ -25,7 +25,8 @@ public interface ControllerLevelConstant {
 	//PATHS
 	String CONTROLLER_PATH = "Controller?";
 	
-	String REDIRECT_FROM_DELETE_NEWS_TO_MAIN_PAGE = "Controller?command=gotomainpage&message=News was deleted";
+	String REDIRECT_FROM_DELETE_NEWS_TO_MAIN_PAGE = "Controller?command=gotomainpage";
+	//String REDIRECT_FROM_DELETE_NEWS_TO_MAIN_PAGE = "Controller?command=gotomainpage&message=News was deleted";
 	String REDIRECT_FROM_LOGINATION_TO_GO_TO_MAIN_PAGE = "Controller?command=gotomainpage";
 	String REDIRECT_FROM_LOGINATION_PAGE_IN_EXCEPTION_CASE = "Controller?command=gotomainpage";
 	
