@@ -30,14 +30,13 @@ public class SaveEdittedInformation {
 	
 //@RequestMapping(params = {"action=nuovoprodotto","action=salvaprodotto"})
 	
-	//@RequestMapping(params = {"command=save_new_information"},{"id=" + news.getId()})
-	public String execute(@ModelAttribute("News") News news, Model theModel) throws ServletException, IOException, ServiceException {
+	@RequestMapping(params = {"command=save_new_information"})
+	public String execute(@ModelAttribute("singleNews") News news, Model theModel) throws ServletException, IOException, ServiceException {
 
 		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
 			return;
 		}*/
-		//&message=&id=
-
+		
 		//idString idStr = request.getParameter(ID_PARAM);
 		int idNews = news.getId();
 		String titleNews = news.getTitle();

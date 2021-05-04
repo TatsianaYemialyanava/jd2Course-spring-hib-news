@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
@@ -93,15 +92,11 @@ input[type=submit] {
 
 		<form action="Controller" method="get">
 			<input type="hidden" name="command" value="go_to_full_news_page" />
-			<input type="hidden" name="id" value="${param['id']}" /> <input
-				type="submit" value="${cancel}" />
+			<input type="hidden" name="id" value="${param['id']}" />
+			<input type="submit" value="${cancel}" />
 		</form>
 		
-		<!-- <form:form action="Controller?" method="get">
-			<input type="hidden" name="command" value="go_to_full_news_page" />
-			<input type="hidden" name="id" value="${param['id']}" /> <input
-				type="submit" value="${cancel}" />
-		</form> -->
+		
 		<br />
 
 
