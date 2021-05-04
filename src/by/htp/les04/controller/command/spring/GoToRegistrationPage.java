@@ -16,8 +16,9 @@ public class GoToRegistrationPage {
 	
 	@RequestMapping(params = {"command=registration"})
 	public String execute(Model theModel) throws ServletException, IOException {
-		
-		theModel.addAttribute("user", new User());
+		User userNew = new User();
+		userNew.setName("Kon");
+		theModel.addAttribute("user", userNew);
 		
 		return REQUESTDISPATCHER_FROM_GO_TO_REGISTRATION_PAGE_TO_REGISTRATION;
 	}
