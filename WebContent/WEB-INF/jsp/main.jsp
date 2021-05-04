@@ -49,6 +49,14 @@
 			!
 		</h1>
 	</div>
+	
+	<c:if test="${param.message != 'null'}">
+		<div align="center">
+			<font color="green"> 
+			<c:out value="${param.message}" />
+			</font>
+		</div>
+	</c:if>
 
 
 	<div align="center">
