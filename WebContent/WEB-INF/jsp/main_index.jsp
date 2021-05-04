@@ -73,21 +73,21 @@ input[type=submit] {
 
 	<br />
 	
-	<form:form action="Controller?command=logination" modelAttribute="user">
+	<form:form style="text-align: center" action="Controller?command=logination" modelAttribute="user">
 			
-		Login: <form:input path="login" />
+		<c:out value="${login}" />: <br>
+		<form:input path="login" />
 		
 		<br><br>
 	
-		Password: <form:input path="password" />
+		<c:out value="${password}" />:<br>
+		<form:input path="password" />
 		
 		<br/><br/>
 	
-		<input type="submit" value="Submit" />
+		<input type="submit" value="${send}" />
 	
 	</form:form>
-	
-	
 
 	<!--<form style="text-align: center" action="Controller" method="post">
 		<input type="hidden" name="command" value="logination" />

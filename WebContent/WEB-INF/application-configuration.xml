@@ -25,9 +25,9 @@
 		<property name="suffix" value=".jsp" />
 	</bean>
 
-	<!-- <bean class="org.springframework.context.support.ResourceBundleMessageSource" 
-		id="messageSource"> <property value="resources/messages" name="basenames" 
-		/> </bean> -->
+	<bean class="org.springframework.context.support.ResourceBundleMessageSource" 
+		id="messageSource"> <property value="resources/messages" name="basenames"/> 
+	</bean> 
 		
 	<bean id="myDataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />

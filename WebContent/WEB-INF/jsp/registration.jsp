@@ -83,71 +83,80 @@ input[type=submit] {
 	</c:if>
 
 	<br />
-	<div id="container">
+	<div id="container" align="center">
 
 		<form:form action="Controller?command=savenewuser" modelAttribute="user" method="POST">
 			<form:hidden path="idUser" />
 
 
-			<label>First name:</label><br>
+			<label><c:out value="${name}" />:</label><br>
 			<form:input path="name" />
 
 			<br>
 
-			<label>Last name:</label><br>
+			<label><c:out value="${surname}" />:</label><br>
 			<form:input path="surname" />
 
 			<br>
 
-			<label>Email:</label><br>
+			<label><c:out value="${email}" />:</label><br>
 			<form:input path="email" />
 
 			<br>
 
-			<label>Login:</label><br>
+			<label><c:out value="${regLogin}" />:</label><br>
 			<form:input path="login" />
 
 			<br>
 
 
-			<label>Password:</label><br>
+			<label><c:out value="${regPassword}" />:</label><br>
 			<form:input path="password" />
 			<br>
 
 			<label></label>
-			<input type="submit" value="Save" class="save" />
+			<input type="submit" value="${regSave}" class="save" />
 
 		</form:form>
-	</div>
+	
 
 	<!-- <form style="text-align: center" action="Controller" method="post">
 		<input type="hidden" name="command" value="savenewuser" />
+		
 		<p><c:out value="${name}" />:</p>
 		<input type="text" name="name" value="" />
-		<p><c:out value="${surname}" />:</p>
+		
+		<p><c:out value="${name}" />:</p>
 		<input type="text" name="surname" value="" />
+		
 		<p><c:out value="${email}" />:</p>
 		<input type="text" name="email" value="">
+		
 		<p title="<c:out value="${regLoginInfo}" />"><c:out value="${regLogin}" />:</p>
 		<input type="text" name="login" value="">
+		
 		<p title="<c:out value="${regPasswordInfo}" />"><c:out value="${regPassword}" />:</p>
 		<input type="password" name="password" value=""> <br /> 
+		
 		<input type="submit" value="${regSave}" /> <br />
 	</form>-->
 
 	<div style=""></div>
 
+
 	<p>
-		<a href="Controller?command=gotoindexpage">Back</a>
+		<a href="Controller?command=gotoindexpage"> ${backToMainPage} </a>
 	</p>
+	</div>
+	
 
-
-	<!--<div align="center">
-		<form action="Controller" method="get">
-			<input type="hidden" name="command" value="gotomainpage" /> <input
-				type="submit" value="${backToMainPage}" />
+<!-- попробовать 
+	<div align="center">
+		<form action="Controller?command=gotomainpage" method="get">
+			<input type="hidden" /> <input type="submit" value="${backToMainPage}" />
 		</form>
-	</div>-->
+	</div>
+	-->
 
 	<div class="footer"
 		style="height: 10%; position: absolute; bottom: 0px;">
