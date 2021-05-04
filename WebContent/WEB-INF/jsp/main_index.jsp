@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8" import="java.util.List, by.htp.les04.bean.News"%>
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,8 +72,24 @@ input[type=submit] {
 	</c:if>
 
 	<br />
+	
+	<form:form action="Controller?command=logination" modelAttribute="user">
+			
+		Login: <form:input path="login" />
+		
+		<br><br>
+	
+		Password: <form:input path="password" />
+		
+		<br/><br/>
+	
+		<input type="submit" value="Submit" />
+	
+	</form:form>
+	
+	
 
-	<form style="text-align: center" action="Controller" method="post">
+	<!--<form style="text-align: center" action="Controller" method="post">
 		<input type="hidden" name="command" value="logination" />
 		<c:out value="${login}" />
 		: <br /> <input type="text" name="login" value="" /> <br />
@@ -80,7 +97,7 @@ input[type=submit] {
 		: <br /> <input type="password" name="password" value=""> <br />
 		<input type="submit" value="${send}" /> <br />
 	</form>
-
+-->
 	<br />
 
 	<div align="center">

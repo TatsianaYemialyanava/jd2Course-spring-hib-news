@@ -27,7 +27,7 @@ public interface ControllerLevelConstant {
 	
 	String REDIRECT_FROM_DELETE_NEWS_TO_MAIN_PAGE = "Controller?command=gotomainpage&message=News was deleted";
 	String REDIRECT_FROM_LOGINATION_TO_GO_TO_MAIN_PAGE = "Controller?command=gotomainpage";
-	String REDIRECT_FROM_LOGINATION_PAGE_IN_EXCEPTION_CASE = "Controller?command=gotomainpage&message=";
+	String REDIRECT_FROM_LOGINATION_PAGE_IN_EXCEPTION_CASE = "Controller?command=gotomainpage";
 	
 	String REDIRECT_FROM_LOGOUT_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage&message=logout OK";
 	
@@ -35,7 +35,8 @@ public interface ControllerLevelConstant {
 	String REDIRECT_FROM_SAVE_NEW_USER_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage";
 	//String REDIRECT_FROM_SAVE_NEW_USER_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage&message=Registration completed successfully";
 	
-	String REDIRECT_FROM_LOGINATION_TO_INDEX_PAGE = "Controller?command=gotoindexpage&message=this user not registrated";
+	String REDIRECT_FROM_LOGINATION_TO_INDEX_PAGE = "Controller?command=gotoindexpage"; 
+	//String REDIRECT_FROM_LOGINATION_TO_INDEX_PAGE = "Controller?command=gotoindexpage&message=this user not registrated";
 	
 	String REDIRECT_FROM_SAVE_NEW_USER_TO_REGISTRATION_PAGE = "Controller?command=registration";
 	//String REDIRECT_FROM_SAVE_NEW_USER_TO_REGISTRATION_PAGE = "Controller?command=registration&message=";
@@ -49,5 +50,5 @@ public interface ControllerLevelConstant {
 	String REQUESTDISPATCHER_FROM_GO_TO_INDEX_PAGE_TO_MAIN_INDEX = "main_index";
 	String REQUESTDISPATCHER_FROM_GO_TO_MAIN_PAGE_TO_MAIN = "main";
 	String REQUESTDISPATCHER_FROM_GO_TO_REGISTRATION_PAGE_TO_REGISTRATION = "registration";
-		
+	String  REDIRECT_PREFIX = "redirect:";	
 }

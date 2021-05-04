@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import by.htp.les04.bean.News;
+import by.htp.les04.bean.User;
 import by.htp.les04.service.NewsService;
 import by.htp.les04.service.ServiceException;
 
@@ -23,7 +24,11 @@ public class GoToIndexPage {
 		List<News> news = newsService.takeAll();
 
 		theModel.addAttribute("news", news);
-
+		
+		User user = new User();
+		
+		theModel.addAttribute("user", user);
+		
 		return REQUESTDISPATCHER_FROM_GO_TO_INDEX_PAGE_TO_MAIN_INDEX;
 
 	}
