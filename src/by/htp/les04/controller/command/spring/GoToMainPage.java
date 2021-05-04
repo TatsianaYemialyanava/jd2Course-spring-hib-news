@@ -28,7 +28,7 @@ public class GoToMainPage {
 
 		List<News> news = newsService.takeAll();
 		
-		theModel.addAttribute("news", news);
+		theModel.addAttribute(NEWS_ATTRIBUTE, news);
 		
 		return REQUESTDISPATCHER_FROM_GO_TO_MAIN_PAGE_TO_MAIN;
 	}

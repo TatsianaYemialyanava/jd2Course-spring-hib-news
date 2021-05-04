@@ -23,7 +23,7 @@ public class Logout {
 			session.removeAttribute(AUTH_ATTRIBUTE);
 		}
 		
-		theModel.addAttribute("message", "logout OK");
+		theModel.addAttribute(MESSAGE, "logout OK");
 
 		return REDIRECT_PREFIX + REDIRECT_FROM_LOGOUT_TO_GO_TO_INDEX_PAGE;
 	}

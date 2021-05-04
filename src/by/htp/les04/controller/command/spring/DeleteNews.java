@@ -35,7 +35,7 @@ public class DeleteNews {
 		
 		newsService.deleteNews(news.getId());
 		
-		theModel.addAttribute("message","News was deleted");
+		theModel.addAttribute(MESSAGE,"News was deleted");
 
 		return REDIRECT_PREFIX + REDIRECT_FROM_DELETE_NEWS_TO_MAIN_PAGE;
 

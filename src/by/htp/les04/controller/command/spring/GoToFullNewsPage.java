@@ -25,15 +25,14 @@ public class GoToFullNewsPage {
 		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
 			return;
 		}*/
-
-		/*String idStr = news.getId()Parameter(ID_PARAM);
-		int idInt = Integer.parseInt(idStr);*/
 		
 		News singleNews = newsService.getOne(news.getId());
+		
 		if (singleNews == null) {
-			theModel.addAttribute("message", "An error has occurred. Wait a while and try again");
+			theModel.addAttribute(MESSAGE, "An error has occurred. Wait a while and try again");
 			return REDIRECT_PREFIX + REDIRECT_TO_ERROR_PAGE;
 		}
+		
 		theModel.addAttribute(SINGLE_NEWS_ATTRIBUTE, singleNews);
 		return REQUESTDISPATCHER_FROM_GO_TO_FULL_NEWS_PAGE_TO_FUII_NEWS_PAGE;
 	}

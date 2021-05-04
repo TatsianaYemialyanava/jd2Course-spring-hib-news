@@ -15,7 +15,7 @@ public class GoToErrorPage {
 	@RequestMapping(params = {"command=go_to_error_page"})
 	public String execute(Model theModel) throws ServletException, IOException, ServiceException {
 		
-		// ?theModel.addAttribute("message", e.Throwable);
+		// ?theModel.addAttribute("message", e.getMessage());
 		
 		
 		return REQUESTDISPATCHER_FROM_GO_TO_ERROR_PAGE_TO_ERROR_PAGE;
