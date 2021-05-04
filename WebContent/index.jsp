@@ -10,7 +10,7 @@
 </head>
 <body>
 
-     <c:redirect url="mvc/Controller?command=gotoindexpage" />    			
+     <c:redirect url="Controller?command=gotoindexpage" />    			
      
 </body>
 </html>
