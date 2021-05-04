@@ -30,7 +30,8 @@ public interface ControllerLevelConstant {
 	String REDIRECT_FROM_LOGINATION_TO_GO_TO_MAIN_PAGE = "Controller?command=gotomainpage";
 	String REDIRECT_FROM_LOGINATION_PAGE_IN_EXCEPTION_CASE = "Controller?command=gotomainpage";
 	
-	String REDIRECT_FROM_LOGOUT_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage&message=logout OK";
+	String REDIRECT_FROM_LOGOUT_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage";
+	//String REDIRECT_FROM_LOGOUT_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage&message=logout OK";
 	
 	
 	String REDIRECT_FROM_SAVE_NEW_USER_TO_GO_TO_INDEX_PAGE = "Controller?command=gotoindexpage";
@@ -49,7 +50,7 @@ public interface ControllerLevelConstant {
 	String REDIRECT_TO_ERROR_PAGE = "Controller?command=go_to_error_page";
 	//String REDIRECT_TO_ERROR_PAGE = "Controller?command=go_to_error_page&message=An error has occurred. Wait a while and try again";
 	String REQUESTDISPATCHER_FROM_GO_TO_EDIT_PAGE_TO_EDIT_PAGE = "edit_page";
-	String REQUESTDISPATCHER_FROM_GO_TO_ERROR_PAGE_TO_ERROR_PAGE = "/WEB-INF/jsp/error_page.jsp";
+	String REQUESTDISPATCHER_FROM_GO_TO_ERROR_PAGE_TO_ERROR_PAGE = "error_page";
 	String REQUESTDISPATCHER_FROM_GO_TO_FULL_NEWS_PAGE_TO_FUII_NEWS_PAGE = "full_news_page";
 	String REQUESTDISPATCHER_FROM_GO_TO_INDEX_PAGE_TO_MAIN_INDEX = "main_index";
 	String REQUESTDISPATCHER_FROM_GO_TO_MAIN_PAGE_TO_MAIN = "main";
