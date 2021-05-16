@@ -48,7 +48,6 @@ public class UserServiceImpl implements UserService {
 		}
 				
 		try {
-			
 			userDAO.createUser(userInfo);
 		}catch (DAOException e) {
 			throw new ServiceException (e.getMessage(), e);
