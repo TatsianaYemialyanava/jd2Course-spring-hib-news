@@ -11,12 +11,12 @@ import by.htp.les04.service.ServiceException;
 
 @Service
 public class NewsServiceImpl implements NewsService {
+	
 	@Autowired
 	private NewsDAO newsDAO;
 	
 	@Override
 	public List<News> takeAll() throws ServiceException {
-
 		
 		List<News> news;
 
@@ -31,15 +31,15 @@ public class NewsServiceImpl implements NewsService {
 	@Override
 	public News getOne(int id) throws ServiceException {
 		
-		News result = null;
+		News oneNews = null;
 		
 		try {
-			result = newsDAO.getOne(id);
+			oneNews = newsDAO.getOne(id);
 
 		}catch(DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
 		}
-		return result;
+		return oneNews;
 	}
 
 	@Override
@@ -50,9 +50,7 @@ public class NewsServiceImpl implements NewsService {
 
 		}catch(DAOException e) {
 			throw new ServiceException(e.getMessage(), e);
-		}
-		
-		
+		}	
 	}
 
 	@Override

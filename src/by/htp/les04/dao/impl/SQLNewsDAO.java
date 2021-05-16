@@ -15,8 +15,6 @@ import by.htp.les04.dao.NewsDAO;
 @Transactional()
 public class SQLNewsDAO implements NewsDAO  {
 	
-	
-	
 	@Autowired
 	private SessionFactory sessionFactory;
 	

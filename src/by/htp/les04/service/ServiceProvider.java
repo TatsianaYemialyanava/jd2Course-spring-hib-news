@@ -3,10 +3,6 @@ package by.htp.les04.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import by.htp.les04.dao.NewsDAO;
-import by.htp.les04.service.impl.NewsServiceImpl;
-import by.htp.les04.service.impl.UserServiceImpl;
-
 @Component
 public final class ServiceProvider {
 	

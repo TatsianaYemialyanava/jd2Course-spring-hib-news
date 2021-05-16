@@ -3,7 +3,6 @@ package by.htp.les04.service;
 import java.util.List;
 import by.htp.les04.bean.News;
 
-
 public interface NewsService {
 	
 	List <News> takeAll() throws ServiceException;
