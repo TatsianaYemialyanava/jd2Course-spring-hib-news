@@ -27,7 +27,16 @@ public class SQLUserDAO implements UserDAO {
 		user =(User) theQuery.getSingleResult();
 		return user;
 	}
-		
+	
+	@Override
+	public User loadUser(String login) throws DAOException {
+		Session currentSession = sessionFactory.getCurrentSession();
+		Query theQuery = currentSession.createQuery("from User where login = '" + login + "'", User.class);
+		User user = new User(); 
+		user =(User) theQuery.getSingleResult();
+		return user;
+	}
+	
 	@Override
 	public void createUser(User user) throws DAOException {
 		Session currentSession = sessionFactory.getCurrentSession();

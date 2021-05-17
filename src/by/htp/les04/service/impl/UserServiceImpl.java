@@ -8,21 +8,46 @@ import by.htp.les04.service.UserService;
 import static by.htp.les04.service.impl.validatorIncomingData.ValidationDataForAuthorisation.*;
 import static by.htp.les04.service.impl.validatorIncomingData.ValidationDataForRegistration.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserServiceImpl implements UserService {
-	
+public class UserServiceImpl implements UserService, UserDetailsService {
+
 	@Autowired
 	private UserDAO userDAO;
 
+
+	@Override
+	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		User user = null;
+		try {
+			user = userDAO.loadUser(username);
+		}catch (DAOException e) {
+			throw new UsernameNotFoundException (e.getMessage(), e);
+		}
+		UserBuilder builder = null;
+		if (user != null) {
+			builder = org.springframework.security.core.userdetails.User.withUsername(username);
+			builder.password(user.getPassword());
+			String[] authorities = new String[] {user.getRole()};
+			builder.authorities(authorities);
+		} else {
+			throw new UsernameNotFoundException("User not found.");
+		}
+		return builder.build();
+	}
+
 	@Override
 	public User authorization(String login, String password) throws ServiceException {
-	
+
 		if (!validateDataForAuthorisation(login, password)) {
 			throw new ServiceException("wrong login or password");
 		}
-		
+
 		User user = null;
 		try {
 			user = userDAO.authorization(login, password);
@@ -32,11 +57,11 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	
+
 
 	@Override
 	public void createUser(User userInfo) throws ServiceException {
-		
+
 		String name = userInfo.getName();
 		String surname = userInfo.getSurname();
 		String email = userInfo.getEmail();
@@ -46,16 +71,16 @@ public class UserServiceImpl implements UserService {
 		if (!validateDataForRegistration(name, surname, email, login, password)) {
 			throw new ServiceException("incorrect data entered");
 		}
-				
+
 		try {
 			userDAO.createUser(userInfo);
 		}catch (DAOException e) {
 			throw new ServiceException (e.getMessage(), e);
 		}
-		
+
 	}
 
-	
-	
+
+
 
 }

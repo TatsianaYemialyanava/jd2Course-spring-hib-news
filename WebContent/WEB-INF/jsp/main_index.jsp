@@ -66,7 +66,7 @@ input[type=submit] {
 
 	<br />
 	
-	<form:form style="text-align: center" action="Controller?command=logination" modelAttribute="user">
+	<form:form style="text-align: center" action="login" modelAttribute="user">
 			
 		<c:out value="${login}" />: <br>
 		<form:input path="login" />

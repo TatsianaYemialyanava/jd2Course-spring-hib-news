@@ -64,7 +64,37 @@
  
     <bean id="userCreationLoggingAspect" class="by.htp.les04.aspect.UserCreationLoggingAspect" />
     <mvc:resources mapping="/resources/**" location="/resources/"/>
+    
+ 	<!-- Spring Security -->
+ 	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
  	
+ 	<security:http auto-config="true" use-expressions="true">
+		<security:form-login login-page="/main_index"
+			login-processing-url="/login"
+			username-parameter="login" 
+			password-parameter="password" 
+			default-target-url="/Controller?command=gotomainpage" 
+			always-use-default-target="true" 
+			authentication-failure-url="/Controller?command=gotoindexpage&amp;message=user%20not%20registered"
+		/>
+		
+		<!--  <security:logout logout-url="/logout" logout-success-url="/login?logout=true" />-->
+		<security:intercept-url pattern="/Controller?command=delete_news*" access="hasRole('admin')" />
+		<security:intercept-url pattern="/Controller?command=go_to_edit_page" access="hasRole('admin')" />
+		<security:intercept-url pattern="/Controller?command=save_new_information" access="hasRole('admin')" />
+		<!--<security:intercept-url pattern="/**" access="hasAnyRole('user', 'admin')" />-->
+		<security:intercept-url pattern="/**" access="permitAll" />
+		<security:intercept-url pattern="/login" access="permitAll" />
+		
+	</security:http>
+	
+	<bean id="nooptEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" />
+ 	<security:authentication-manager>
+		<security:authentication-provider user-service-ref="userServiceImpl" >
+			<security:password-encoder ref="nooptEncoder"/>
+		</security:authentication-provider>
+	</security:authentication-manager>
+	 
 </beans>
 
 
