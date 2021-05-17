@@ -9,8 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="${pageContext.request.contextPath}/css/main_index.css"
-	type="text/css" rel="stylesheet" />
+<link href="${pageContext.request.contextPath}/css/main_index.css" type="text/css" rel="stylesheet" />
 <style>
 input {
 	width: 20%;
@@ -20,7 +19,6 @@ input {
 	border: 2px solid brown;
 	border-radius: 4px;
 }
-
 input[type=submit] {
 	width: 10%;
 	border: 2px solid brown;
@@ -31,18 +29,13 @@ input[type=submit] {
 <fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
 <fmt:setBundle basename="localization.interface" var="interfaceBundle" />
 
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru"
-	var="ru_button" />
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en"
-	var="en_button" />
+<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru" var="ru_button" />
+<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en" var="en_button" />
 <fmt:message bundle="${interfaceBundle}" key="index.login" var="login" />
-<fmt:message bundle="${interfaceBundle}" key="index.password"
-	var="password" />
+<fmt:message bundle="${interfaceBundle}" key="index.password" var="password" />
 <fmt:message bundle="${interfaceBundle}" key="index.send" var="send" />
-<fmt:message bundle="${interfaceBundle}" key="index.registration"
-	var="registration" />
-<fmt:message bundle="${interfaceBundle}" key="index.contacts"
-	var="contacts" />
+<fmt:message bundle="${interfaceBundle}" key="index.registration" var="registration" />
+<fmt:message bundle="${interfaceBundle}" key="index.contacts" var="contacts" />
 </head>
 <body>
 	<div class="header" align="center" style="font-size: 200%">
@@ -50,17 +43,17 @@ input[type=submit] {
 	</div>
 
 	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> <input
-			type="hidden" name="language" value="ru" /> <input type="hidden"
-			name="commandRedirect" value="command=gotoindexpage" /> <input
-			type="submit" value="${ru_button}" /> <br />
+		<input type="hidden" name="command" value="localization" /> 
+		<input type="hidden" name="language" value="ru" /> 
+		<input type="hidden" name="commandRedirect" value="command=gotoindexpage" /> 
+		<input type="submit" value="${ru_button}" /> <br />
 	</form>
 
 	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> <input
-			type="hidden" name="language" value="en" /> <input type="hidden"
-			name="commandRedirect" value="command=gotoindexpage" /> <input
-			type="submit" value="${en_button}" /> <br />
+		<input type="hidden" name="command" value="localization" /> 
+		<input type="hidden" name="language" value="en" /> 
+		<input type="hidden" name="commandRedirect" value="command=gotoindexpage" /> 
+		<input type="submit" value="${en_button}" /> <br />
 	</form>
 
 	<c:if test="${param.message != 'null'}">
@@ -89,26 +82,14 @@ input[type=submit] {
 	
 	</form:form>
 
-	<!--<form style="text-align: center" action="Controller" method="post">
-		<input type="hidden" name="command" value="logination" />
-		<c:out value="${login}" />
-		: <br /> <input type="text" name="login" value="" /> <br />
-		<c:out value="${password}" />
-		: <br /> <input type="password" name="password" value=""> <br />
-		<input type="submit" value="${send}" /> <br />
-	</form>
--->
 	<br />
 
 	<div align="center">
-		<a href="Controller?command=registration"><c:out
-				value="${registration}" /></a>
-
+		<a href="Controller?command=registration"><c:out value="${registration}" /></a>
 		<table border="2">
 			<c:forEach var="n" items="${requestScope.news}">
 				<tr>
-					<td><font size="16" color="black" align="center"> <c:out
-								value="${n.title}" />
+					<td><font size="16" color="black" align="center"> <c:out value="${n.title}" />
 							<div style="font-size: 40%">
 								<c:out value="${n.brief}" />
 							</div>
@@ -117,13 +98,10 @@ input[type=submit] {
 			</c:forEach>
 		</table>
 	</div>
-	<div class="footer"
-		style="height: 10%; position: absolute; bottom: 0px;">
+	<div class="footer" style="height: 10%; position: absolute; bottom: 0px;">
 		<h2>
-			<c:out value="${contacts}" />
-			: tatsiana88_88@tut.by
+			<c:out value="${contacts}" />: tatsiana88_88@tut.by
 		</h2>
 	</div>
 </body>
 </html>
-

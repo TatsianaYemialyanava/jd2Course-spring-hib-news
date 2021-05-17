@@ -5,7 +5,9 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:aop="http://www.springframework.org/schema/aop"
-	xsi:schemaLocation="
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security 
+	    http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/beans
     	http://www.springframework.org/schema/beans/spring-beans.xsd
     	http://www.springframework.org/schema/context
@@ -58,11 +60,10 @@
 	</bean>
 	<tx:annotation-driven transaction-manager="myTransactionManager" />
 	
-	<!-- Enable @AspectJ annotation support  -->
     <aop:aspectj-autoproxy />
  
-    <!-- Logging Aspect -->
     <bean id="userCreationLoggingAspect" class="by.htp.les04.aspect.UserCreationLoggingAspect" />
+    <mvc:resources mapping="/resources/**" location="/resources/"/>
  	
 </beans>
 
