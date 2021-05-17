@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,7 +44,11 @@
 	</form>
 
 	<div align="left">
-		<a href="Controller?command=logout"><c:out value="${logout}" /></a> <br />
+		<form action="logout" method="POST">
+			<a href="#" onclick="this.parentNode.submit()">Logout</a>
+			<sec:csrfInput/>
+		</form>
+		<br />
 		<h1><c:out value="${message}" /></h1>
 		<h1>
 			<c:out value="${name}" />

@@ -78,7 +78,7 @@
 			authentication-failure-url="/Controller?command=gotoindexpage&amp;message=user%20not%20registered"
 		/>
 		
-		<!--  <security:logout logout-url="/logout" logout-success-url="/login?logout=true" />-->
+		<security:logout logout-url="/logout" logout-success-url="/Controller?command=gotoindexpage" />
 		<security:intercept-url pattern="/Controller?command=delete_news*" access="hasRole('admin')" />
 		<security:intercept-url pattern="/Controller?command=go_to_edit_page" access="hasRole('admin')" />
 		<security:intercept-url pattern="/Controller?command=save_new_information" access="hasRole('admin')" />
