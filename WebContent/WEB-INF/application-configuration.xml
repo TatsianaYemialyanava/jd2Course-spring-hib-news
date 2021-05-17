@@ -63,7 +63,8 @@
     <aop:aspectj-autoproxy />
  
     <bean id="userCreationLoggingAspect" class="by.htp.les04.aspect.UserCreationLoggingAspect" />
-    <mvc:resources mapping="/resources/**" location="/resources/"/>
+  
+    <mvc:resources mapping="/css/**" location="/css/"/>
     
  	<!-- Spring Security -->
  	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
