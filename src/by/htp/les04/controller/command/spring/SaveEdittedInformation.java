@@ -1,6 +1,8 @@
 package by.htp.les04.controller.command.spring;
 
 import java.io.IOException;
+import java.security.Principal;
+
 import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,7 +22,7 @@ public class SaveEdittedInformation {
 	private NewsService newsService;
 	
 	@RequestMapping(params = {"command=save_new_information"})
-	public String execute(@ModelAttribute("singleNews") News news, Model theModel) throws ServletException, IOException, ServiceException {
+	public String execute(@ModelAttribute("singleNews") News news, Model theModel, Principal principal) throws ServletException, IOException, ServiceException {
 
 		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
 			return;

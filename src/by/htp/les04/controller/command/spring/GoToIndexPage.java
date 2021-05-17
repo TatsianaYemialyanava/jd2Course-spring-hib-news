@@ -1,5 +1,6 @@
 package by.htp.les04.controller.command.spring;
 
+import java.security.Principal;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,7 +20,7 @@ public class GoToIndexPage {
 	private NewsService newsService;
 
 	@RequestMapping(params = {"command=gotoindexpage"})
-	public String execute(Model theModel) throws ServiceException {
+	public String execute(Model theModel, Principal principal) throws ServiceException {
 		
 		List<News> news = newsService.takeAll();
 

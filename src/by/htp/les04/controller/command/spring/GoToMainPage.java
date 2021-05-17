@@ -1,6 +1,7 @@
 package by.htp.les04.controller.command.spring;
 
 import java.io.IOException;
+import java.security.Principal;
 import java.util.List;
 import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class GoToMainPage {
 	private NewsService newsService;
 
 	@RequestMapping(params = {"command=gotomainpage"})
-	public String execute(Model theModel) throws ServletException, IOException, ServiceException {
+	public String execute(Model theModel, Principal principal) throws ServletException, IOException, ServiceException {
 
 		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
 			return;
