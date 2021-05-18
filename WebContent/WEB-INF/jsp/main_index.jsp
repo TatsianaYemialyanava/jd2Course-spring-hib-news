@@ -85,7 +85,7 @@ input[type=submit] {
 	<br />
 
 	<div align="center">
-		<a href="Controller?command=registration"><c:out value="${registration}" /></a>
+		<a href="AnonymousController?command=registration"><c:out value="${registration}" /></a>
 		<table border="2">
 			<c:forEach var="n" items="${requestScope.news}">
 				<tr>

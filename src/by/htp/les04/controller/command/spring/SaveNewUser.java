@@ -13,7 +13,7 @@ import by.htp.les04.service.UserService;
 import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 
 @Controller
-@RequestMapping("/Controller")
+@RequestMapping("/AnonymousController")
 public class SaveNewUser {
 
 	@Autowired

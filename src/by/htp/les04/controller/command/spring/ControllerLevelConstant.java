@@ -33,7 +33,7 @@ public interface ControllerLevelConstant {
 	String REDIRECT_FROM_LOGOUT_TO_GO_TO_INDEX_PAGE = "AnonymousController?command=gotoindexpage";	
 	String REDIRECT_FROM_SAVE_NEW_USER_TO_GO_TO_INDEX_PAGE = "AnonymousController?command=gotoindexpage";
 	String REDIRECT_FROM_LOGINATION_TO_INDEX_PAGE = "AnonymousController?command=gotoindexpage"; 
-	String REDIRECT_FROM_SAVE_NEW_USER_TO_REGISTRATION_PAGE = "Controller?command=registration";
+	String REDIRECT_FROM_SAVE_NEW_USER_TO_REGISTRATION_PAGE = "AnonymousController?command=registration";
 	String REDIRECT_FROM_SAVE_EDDITED_INFORMATION_TO_GO_TO_FULL_NEWS_PAGE = "Controller?command=go_to_full_news_page&id=";
 	String REDIRECT_TO_ERROR_PAGE = "Controller?command=go_to_error_page";
 

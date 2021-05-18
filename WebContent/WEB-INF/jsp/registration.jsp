@@ -47,14 +47,14 @@ input[type=submit] {
 		<h1>The local news</h1>
 	</div>
 
-	<form action="Controller" method="post">
+	<form action="AnonymousController" method="post">
 		<input type="hidden" name="command" value="localization" /> 
 		<input type="hidden" name="language" value="ru" /> 
 		<input type="hidden" name="commandRedirect" value="command=registration" /> 
 		<input type="submit" value="${ru_button}" /> <br />
 	</form>
 
-	<form action="Controller" method="post">
+	<form action="AnonymousController" method="post">
 		<input type="hidden" name="command" value="localization" /> 
 		<input type="hidden" name="language" value="en" /> 
 		<input type="hidden" name="commandRedirect" value="command=registration" /> 
@@ -71,7 +71,7 @@ input[type=submit] {
 	<br />
 	<div id="container" align="center">
 
-		<form:form action="Controller?command=savenewuser" modelAttribute="user" method="POST">
+		<form:form action="AnonymousController?command=savenewuser" modelAttribute="user" method="POST">
 			<form:hidden path="idUser" />
 
 			<label><c:out value="${name}" />:</label><br>
