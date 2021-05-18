@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
@@ -9,8 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/main_index.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/main_index.css" />
 	
 	<fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
 	<fmt:setBundle basename="localization.interface" var="interfaceBundle" />
@@ -51,8 +49,7 @@
 		<br />
 		<h1><c:out value="${message}" /></h1>
 		<h1>
-			<c:out value="${name}" />
-			!
+			<sec:authentication property="principal.username"/>!
 		</h1>
 	</div>
 	
@@ -63,7 +60,6 @@
 			</font>
 		</div>
 	</c:if>
-
 
 	<div align="center">
 
@@ -76,8 +72,7 @@
 								<c:out value="${n.brief}" />
 								<br />
 								<div align="right">
-									<a
-										href="Controller?command=go_to_full_news_page&id=<c:out value="${n.id}"/>">
+									<a href="Controller?command=go_to_full_news_page&id=<c:out value="${n.id}"/>">
 										<c:out value="${fullNews}" />
 									</a>
 

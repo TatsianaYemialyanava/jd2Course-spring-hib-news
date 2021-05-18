@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
@@ -51,8 +50,7 @@
 		<br />
 		<h1><c:out value="${message}" /></h1>
 		<h1>
-			<sec:authentication property="principal.username"/>
-			!
+			<sec:authentication property="principal.username"/>!
 		</h1>
 	</div>
 	

@@ -28,16 +28,11 @@ input[type=submit] {
 <fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
 <fmt:setBundle basename="localization.interface" var="interfaceBundle" />
 
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru"
-	var="ru_button" />
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en"
-	var="en_button" />
-<fmt:message bundle="${interfaceBundle}"
-	key="editPageNews.button.cancel" var="cancel" />
-<fmt:message bundle="${interfaceBundle}" key="editPageNews.button.save"
-	var="save" />
-<fmt:message bundle="${interfaceBundle}" key="index.contacts"
-	var="contacts" />
+<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru" var="ru_button" />
+<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en" var="en_button" />
+<fmt:message bundle="${interfaceBundle}" key="editPageNews.button.cancel" var="cancel" />
+<fmt:message bundle="${interfaceBundle}" key="editPageNews.button.save" var="save" />
+<fmt:message bundle="${interfaceBundle}" key="index.contacts" var="contacts" />
 </head>
 <body>
 
@@ -46,19 +41,17 @@ input[type=submit] {
 	</div>
 
 	<form action="AdminController" method="post">
-		<input type="hidden" name="command" value="localization" /> <input
-			type="hidden" name="language" value="ru" /> <input type="hidden"
-			name="commandRedirect"
-			value="command=go_to_edit_page&id=${param['id']}" /> <input
-			type="submit" value="${ru_button}" /> <br />
+		<input type="hidden" name="command" value="localization" /> 
+		<input type="hidden" name="language" value="ru" /> 
+		<input type="hidden" name="commandRedirect" value="command=go_to_edit_page&id=${param['id']}" /> 
+		<input type="submit" value="${ru_button}" /> <br />
 	</form>
 
 	<form action="AdminController" method="post">
-		<input type="hidden" name="command" value="localization" /> <input
-			type="hidden" name="language" value="en" /> <input type="hidden"
-			name="commandRedirect"
-			value="command=go_to_edit_page&id=${param['id']}" /> <input
-			type="submit" value="${en_button}" /> <br />
+		<input type="hidden" name="command" value="localization" /> 
+		<input type="hidden" name="language" value="en" /> 
+		<input type="hidden" name="commandRedirect" value="command=go_to_edit_page&id=${param['id']}" /> 
+		<input type="submit" value="${en_button}" /> <br />
 	</form>
 
 	<c:if test="${param.message != 'null'}">
@@ -89,25 +82,20 @@ input[type=submit] {
 
 		</form:form>
 
-
 		<form action="Controller" method="get">
 			<input type="hidden" name="command" value="go_to_full_news_page" />
 			<input type="hidden" name="id" value="${param['id']}" />
 			<input type="submit" value="${cancel}" />
 		</form>
 		
-		
 		<br />
-
-
 
 	</div>
 
 	<div class="footer"
 		style="height: 10%; position: absolute; bottom: 0px;">
 		<h2>
-			<c:out value="${contacts}" />
-			: tatsiana88_88@tut.by
+			<c:out value="${contacts}" />: tatsiana88_88@tut.by
 		</h2>
 	</div>
 </body>
