@@ -15,7 +15,7 @@ import by.htp.les04.service.ServiceException;
 import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 
 @Controller
-@RequestMapping("/Controller")
+@RequestMapping("/AdminController")
 public class DeleteNews {
 
 	@Autowired

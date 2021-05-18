@@ -45,7 +45,7 @@ input[type=submit] {
 		<h1>The local news</h1>
 	</div>
 
-	<form action="Controller" method="post">
+	<form action="AdminController" method="post">
 		<input type="hidden" name="command" value="localization" /> <input
 			type="hidden" name="language" value="ru" /> <input type="hidden"
 			name="commandRedirect"
@@ -53,7 +53,7 @@ input[type=submit] {
 			type="submit" value="${ru_button}" /> <br />
 	</form>
 
-	<form action="Controller" method="post">
+	<form action="AdminController" method="post">
 		<input type="hidden" name="command" value="localization" /> <input
 			type="hidden" name="language" value="en" /> <input type="hidden"
 			name="commandRedirect"
@@ -71,7 +71,7 @@ input[type=submit] {
 	<br />
 
 	<div id="container" align="center" style="position: absolute; left: 150px; right: 150px;">
-		<form:form action="Controller?command=save_new_information" modelAttribute="singleNews" method="POST">
+		<form:form action="AdminController?command=save_new_information" modelAttribute="singleNews" method="POST">
 			<form:hidden path="id" />
 
 			<form:textarea path="title" rows="3" cols="100"></form:textarea>

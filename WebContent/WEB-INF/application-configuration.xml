@@ -69,24 +69,21 @@
  	<!-- Spring Security -->
  	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
  	
- 	<security:http auto-config="true" use-expressions="true">
-		<security:form-login login-page="/main_index"
+ 	<security:http auto-config="true" use-expressions="true" request-matcher="mvc">
+		<security:form-login login-page="/AnonymousController?command=gotoindexpage"
 			login-processing-url="/login"
 			username-parameter="login" 
 			password-parameter="password" 
 			default-target-url="/Controller?command=gotomainpage" 
 			always-use-default-target="true" 
-			authentication-failure-url="/Controller?command=gotoindexpage&amp;message=user%20not%20registered"
+			authentication-failure-url="/AnonymousController?command=gotoindexpage&amp;message=user%20not%20registered"
 		/>
 		
-		<security:logout logout-url="/logout" logout-success-url="/Controller?command=gotoindexpage" />
-		<security:intercept-url pattern="/Controller?command=delete_news*" access="hasRole('admin')" />
-		<security:intercept-url pattern="/Controller?command=go_to_edit_page" access="hasRole('admin')" />
-		<security:intercept-url pattern="/Controller?command=save_new_information" access="hasRole('admin')" />
-		<!--<security:intercept-url pattern="/**" access="hasAnyRole('user', 'admin')" />-->
+		<security:logout logout-url="/logout" logout-success-url="/AnonymousController?command=gotoindexpage" />
+		<security:intercept-url pattern="/AnonymousController" access="permitAll" />
+		<security:intercept-url pattern="/Controller" access="hasAnyRole('user', 'admin')" />
+		<security:intercept-url pattern="/AdminController" access="hasRole('admin')" />
 		<security:intercept-url pattern="/**" access="permitAll" />
-		<security:intercept-url pattern="/login" access="permitAll" />
-		
 	</security:http>
 	
 	<bean id="nooptEncoder" class="org.springframework.security.crypto.password.NoOpPasswordEncoder" />

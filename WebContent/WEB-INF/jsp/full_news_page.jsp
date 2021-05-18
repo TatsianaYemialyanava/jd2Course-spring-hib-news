@@ -91,14 +91,14 @@
 					
      				<c:if test = "${sessionScope.role eq \"admin\"}">
 						<td>
-							<form action="Controller" method="get">
+							<form action="AdminController" method="get">
       						<input type="hidden" name="command" value="go_to_edit_page" />
       						<input type="hidden" name="id" value="${param['id']}">
 							<button><c:out value="${edit}" /></button>
 							</form>
 						</td>
 						<td>
-							<form action="Controller" method="get">
+							<form action="AdminController" method="get">
       						<input type="hidden" name="command" value="delete_news" />
       						<input type="hidden" name="id" value="${param['id']}">
 							<button><c:out value="${delete}" /></button>
