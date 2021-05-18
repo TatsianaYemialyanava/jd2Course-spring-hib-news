@@ -1,7 +1,11 @@
 package by.htp.les04.bean;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -92,8 +96,10 @@ public class News implements Serializable {
 		this.status = status;
 	}
 	
-	public LocalDateTime getDate() {
-		return date;
+	public String getDate() {
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+		String formattedDateTime = date.format(formatter);
+		return formattedDateTime;
 	}
 
 	public void setDate(LocalDateTime date) {
