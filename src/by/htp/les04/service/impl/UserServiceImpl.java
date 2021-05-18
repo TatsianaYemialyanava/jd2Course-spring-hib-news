@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}
 		UserBuilder builder = null;
 		if (user != null) {
-			builder = org.springframework.security.core.userdetails.User.withUsername(username);
+			builder = org.springframework.security.core.userdetails.User.withUsername(user.getName());
 			builder.password(user.getPassword());
 			String[] roles = new String[] {user.getRole()};
 			builder.roles(roles);

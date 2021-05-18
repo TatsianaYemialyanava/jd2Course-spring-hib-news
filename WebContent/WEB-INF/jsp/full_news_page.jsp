@@ -51,7 +51,7 @@
 		<br />
 		<h1><c:out value="${message}" /></h1>
 		<h1>
-			<c:out value="${name}" />
+			<sec:authentication property="principal.username"/>
 			!
 		</h1>
 	</div>
@@ -89,7 +89,7 @@
 						</form>
 					</td>
 					
-     				<c:if test = "${sessionScope.role eq \"admin\"}">
+     				<sec:authorize access="hasRole('admin')">
 						<td>
 							<form action="AdminController" method="get">
       						<input type="hidden" name="command" value="go_to_edit_page" />
@@ -104,7 +104,7 @@
 							<button><c:out value="${delete}" /></button>
 							</form>
 						</td>
-					</c:if>
+					</sec:authorize>
 				</tr>
 			</table>
 		</div>
