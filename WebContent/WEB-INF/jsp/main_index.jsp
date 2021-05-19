@@ -3,6 +3,7 @@ import="java.util.List, by.htp.les04.bean.News"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -26,36 +27,16 @@ input[type=submit] {
 	border-radius: 25px;
 }
 </style>
-<fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
-<fmt:setBundle basename="localization.interface" var="interfaceBundle" />
 
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru" var="ru_button" />
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en" var="en_button" />
-<fmt:message bundle="${interfaceBundle}" key="index.login" var="login" />
-<fmt:message bundle="${interfaceBundle}" key="index.password" var="password" />
-<fmt:message bundle="${interfaceBundle}" key="index.send" var="send" />
-<fmt:message bundle="${interfaceBundle}" key="index.registration" var="registration" />
-<fmt:message bundle="${interfaceBundle}" key="index.contacts" var="contacts" />
 </head>
 <body>
 	<div class="header" align="center" style="font-size: 200%">
 		<h1>The local news</h1>
 	</div>
 
-	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="ru" /> 
-		<input type="hidden" name="commandRedirect" value="command=gotoindexpage" /> 
-		<input type="submit" value="${ru_button}" /> <br />
-	</form>
-
-	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="en" /> 
-		<input type="hidden" name="commandRedirect" value="command=gotoindexpage" /> 
-		<input type="submit" value="${en_button}" /> <br />
-	</form>
-
+	<a href="AnonymousController?command=localization&language=en&commandRedirect=AnonymousController%3Fcommand%3Dgotoindexpage"><spring:message code="en.button" /></a><br>
+	<a href="AnonymousController?command=localization&language=ru&commandRedirect=AnonymousController%3Fcommand%3Dgotoindexpage"><spring:message code="ru.button" /></a><br>
+	
 	<c:if test="${param.message != 'null'}">
 		<div align="center">
 			<font color="green"> 
@@ -66,26 +47,20 @@ input[type=submit] {
 
 	<br />
 	
-	<form:form style="text-align: center" action="login" modelAttribute="user">
-			
-		<c:out value="${login}" />: <br>
+	<form:form style="text-align: center" action="login" modelAttribute="user">	
+	    <spring:message code="index.login" />: <br>
 		<form:input path="login" />
-		
 		<br><br>
-	
-		<c:out value="${password}" />:<br>
+	    <spring:message code="index.password" />:<br>
 		<form:input path="password" />
-		
 		<br/><br/>
-	
-		<input type="submit" value="${send}" />
-	
+		<input type="submit" value="<spring:message code='index.send' />" />
 	</form:form>
 
 	<br />
 
 	<div align="center">
-		<a href="AnonymousController?command=registration"><c:out value="${registration}" /></a>
+		<a href="AnonymousController?command=registration"><spring:message code="index.registration" /></a>
 		<table border="2">
 			<c:forEach var="n" items="${requestScope.news}">
 				<tr>
@@ -100,7 +75,7 @@ input[type=submit] {
 	</div>
 	<div class="footer" style="height: 10%; position: absolute; bottom: 0px;">
 		<h2>
-			<c:out value="${contacts}" />: tatsiana88_88@tut.by
+			<spring:message code="index.contacts" />: tatsiana88_88@tut.by
 		</h2>
 	</div>
 </body>

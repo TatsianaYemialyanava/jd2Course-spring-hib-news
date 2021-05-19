@@ -2,13 +2,13 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link type="text/css" rel="stylesheet"
-	href="${pageContext.request.contextPath}/css/main_index.css" />
+<link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/main_index.css" />
 <style>
 input[type=hidden] {
 	width: 20%;
@@ -18,42 +18,23 @@ input[type=hidden] {
 	border: 2px solid brown;
 	border-radius: 4px;
 }
-
 input[type=submit] {
 	border: 2px solid brown;
 	padding: 10px;
 	border-radius: 25px;
 }
 </style>
-<fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
-<fmt:setBundle basename="localization.interface" var="interfaceBundle" />
 
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru" var="ru_button" />
-<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en" var="en_button" />
-<fmt:message bundle="${interfaceBundle}" key="editPageNews.button.cancel" var="cancel" />
-<fmt:message bundle="${interfaceBundle}" key="editPageNews.button.save" var="save" />
-<fmt:message bundle="${interfaceBundle}" key="index.contacts" var="contacts" />
 </head>
 <body>
 
 	<div class="header" align="center" style="font-size: 200%">
 		<h1>The local news</h1>
 	</div>
-
-	<form action="AdminController" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="ru" /> 
-		<input type="hidden" name="commandRedirect" value="command=go_to_edit_page&id=${param['id']}" /> 
-		<input type="submit" value="${ru_button}" /> <br />
-	</form>
-
-	<form action="AdminController" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="en" /> 
-		<input type="hidden" name="commandRedirect" value="command=go_to_edit_page&id=${param['id']}" /> 
-		<input type="submit" value="${en_button}" /> <br />
-	</form>
-
+	
+	<a href="AdminController?command=localization&language=en&commandRedirect=AdminController%3Fcommand%3Dgo_to_edit_page%26id=${param['id']}"><spring:message code="en.button" /></a><br>
+	<a href="AdminController?command=localization&language=ru&commandRedirect=AdminController%3Fcommand%3Dgo_to_edit_page%26id=${param['id']}"><spring:message code="ru.button" /></a><br>
+	
 	<c:if test="${param.message != 'null'}">
 		<div align="center">
 			<font color="green"> <c:out value="${param.message}" />
@@ -78,16 +59,15 @@ input[type=submit] {
 			<form:textarea path="content" rows="18" cols="100"></form:textarea>
 			<br>		
 
-			<input type="submit" value="${save}" class="save" />
+			<input type="submit" value="<spring:message code='editPageNews.button.save' />" class="save" />
 
 		</form:form>
 
 		<form action="Controller" method="get">
 			<input type="hidden" name="command" value="go_to_full_news_page" />
 			<input type="hidden" name="id" value="${param['id']}" />
-			<input type="submit" value="${cancel}" />
+			<input type="submit" value="<spring:message code='editPageNews.button.cancel' />" />
 		</form>
-		
 		<br />
 
 	</div>
@@ -95,7 +75,7 @@ input[type=submit] {
 	<div class="footer"
 		style="height: 10%; position: absolute; bottom: 0px;">
 		<h2>
-			<c:out value="${contacts}" />: tatsiana88_88@tut.by
+			<spring:message code="index.contacts" />: tatsiana88_88@tut.by
 		</h2>
 	</div>
 </body>

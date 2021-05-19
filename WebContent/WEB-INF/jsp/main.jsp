@@ -2,6 +2,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <%@ taglib uri="http://www.springframework.org/security/tags" prefix="sec"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 
 <!DOCTYPE html>
 <html>
@@ -10,49 +11,27 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="${pageContext.request.contextPath}/css/main_index.css" />
 	
-	<fmt:setLocale value="${sessionScope.twoLettersLanguage}" />
-	<fmt:setBundle basename="localization.interface" var="interfaceBundle" />
-
-	<fmt:message bundle="${interfaceBundle}" key="local.message" var="message" />
-	<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.ru" var="ru_button" />
-	<fmt:message bundle="${interfaceBundle}" key="local.locbutton.name.en" var="en_button" />
-	<fmt:message bundle="${interfaceBundle}" key="main.fullNews" var="fullNews" />
-	<fmt:message bundle="${interfaceBundle}" key="main.logout" var="logout" />
-	<fmt:message bundle="${interfaceBundle}" key="index.contacts" var="contacts" />
 </head>
 <body>
 	<div class="header" align="center" style="font-size: 200%">
 		<h1>The local news</h1>
 	</div>
-		
-	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="ru" />
-		<input type="hidden" name="commandRedirect" value="command=gotomainpage" />
-		<input type="submit" value="${ru_button}" />
-		<br />
-	</form>
-
-	<form action="Controller" method="post">
-		<input type="hidden" name="command" value="localization" /> 
-		<input type="hidden" name="language" value="en" />
-		<input type="hidden" name="commandRedirect" value="command=gotomainpage" />
-		<input type="submit" value="${en_button}" />
-		<br />
-	</form>
+	
+	<a href="Controller?command=localization&language=en&commandRedirect=Controller%3Fcommand%3Dgotomainpage"><spring:message code="en.button" /></a><br>
+	<a href="Controller?command=localization&language=ru&commandRedirect=Controller%3Fcommand%3Dgotomainpage"><spring:message code="ru.button" /></a>
 	
 	<div align="left">
 		<form action="logout" method="POST">
-			<a href="#" onclick="this.parentNode.submit()">Logout</a>
+			<a href="#" onclick="this.parentNode.submit()"><spring:message code="main.logout" /></a>
 			<sec:csrfInput/>
 		</form>
 		<br />
-		<h1><c:out value="${message}" /></h1>
+		<h1><spring:message code="local.message" /></h1>
 		<h1>
 			<sec:authentication property="principal.username"/>!
 		</h1>
 	</div>
-	
+		
 	<c:if test="${param.message != 'null'}">
 		<div align="center">
 			<font color="green"> 
@@ -73,7 +52,7 @@
 								<br />
 								<div align="right">
 									<a href="Controller?command=go_to_full_news_page&id=<c:out value="${n.id}"/>">
-										<c:out value="${fullNews}" />
+										<spring:message code="main.fullNews" />
 									</a>
 
 								</div>
@@ -84,9 +63,8 @@
 		</table>
 	</div>
 
-	<div class="footer"
-		style="height: 10%; position: absolute; bottom: 0px;">
-		<h2><c:out value="${contacts}" />: tatsiana88_88@tut.by</h2>
+	<div class="footer" style="height: 10%; position: absolute; bottom: 0px;">
+		<h2><spring:message code="index.contacts" />: tatsiana88_88@tut.by</h2>
 	</div>
 </body>
 </html>
