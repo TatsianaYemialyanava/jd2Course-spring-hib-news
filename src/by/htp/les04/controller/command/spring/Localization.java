@@ -13,7 +13,7 @@ import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 public class Localization {
 	
 	@RequestMapping(params = {"command=localization"})
-	//public String execute(@ModelAttribute("Language") Language language) throws ServletException, IOException {
+
 	public String execute(@RequestParam("commandRedirect") String commandForRedirect) throws ServletException, IOException {
 		
 		return REDIRECT_PREFIX + commandForRedirect;

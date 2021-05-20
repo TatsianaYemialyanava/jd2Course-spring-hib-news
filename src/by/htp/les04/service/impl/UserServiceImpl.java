@@ -68,9 +68,9 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		String login = userInfo.getEmail();
 		String password = userInfo.getPassword();
 
-		/*if (!validateDataForRegistration(name, surname, email, login, password)) {
+		if (!validateDataForRegistration(name, surname, email, login, password)) {
 			throw new ServiceException("incorrect data entered");
-		}*/
+		}
 
 		try {
 			userDAO.createUser(userInfo);
