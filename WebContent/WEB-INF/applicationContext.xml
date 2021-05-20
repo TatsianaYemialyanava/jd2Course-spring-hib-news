@@ -75,7 +75,10 @@
     <aop:aspectj-autoproxy />
  
     <bean id="userCreationLoggingAspect" class="by.htp.les04.aspect.UserCreationLoggingAspect" />
-	
+    
+	<bean id="GlobalExceptionHandler" class="by.htp.les04.controller.command.spring.GlobalExceptionHandler">
+	</bean>
+
  	<!-- Spring Security -->
  	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />
  	

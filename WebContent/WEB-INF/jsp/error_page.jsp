@@ -17,10 +17,13 @@
 	
 	<a href="AnonymousController?command=localization&language=en&commandRedirect=AnonymousController%3Fcommand%3Dgo_to_error_page"><spring:message code="en.button" /></a><br>
 	<a href="AnonymousController?command=localization&language=ru&commandRedirect=AnonymousController%3Fcommand%3Dgo_to_error_page"><spring:message code="ru.button" /></a><br>
-
+	
 	<div align="center">
 		<h1>
-			<c:out value="${message1}" />
+			
+			<spring:message code="exceptionPage.message1" />
+			<spring:message code="exceptionPage.message2" />
+			
 			<br />
 
 			<c:if test="${param.message != 'null'}">
