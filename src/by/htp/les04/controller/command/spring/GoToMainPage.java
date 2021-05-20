@@ -23,10 +23,6 @@ public class GoToMainPage {
 	@RequestMapping(params = {"command=gotomainpage"})
 	public String execute(Model theModel, Principal principal) throws ServletException, IOException, ServiceException {
 
-		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
-			return;
-		}*/
-
 		List<News> news = newsService.takeAll();
 		
 		theModel.addAttribute(NEWS_ATTRIBUTE, news);

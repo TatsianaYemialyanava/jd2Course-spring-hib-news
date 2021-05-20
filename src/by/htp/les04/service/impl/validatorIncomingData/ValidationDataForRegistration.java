@@ -11,16 +11,16 @@ public class ValidationDataForRegistration {
 	private static Pattern patternP = Pattern.compile("[-A-Za-z1-9!@#$%^&*()]+");
 
 	public static boolean validateDataForRegistration(String name, String surname, String email, String login, String password) {
-		
+
 		boolean result = true;
-		
+
 		if (name==null || "".equals(name)) {
 			result = false;
 		}
 		if (name.trim().isEmpty()) {
 			result = false;
 		}
-		
+
 		Matcher matcherN = patternN.matcher(name);
 		if (!matcherN.matches()) {
 			result = false;
@@ -32,7 +32,7 @@ public class ValidationDataForRegistration {
 		if (surname.trim().isEmpty()) {
 			result = false;
 		}
-		
+
 		Matcher matcherS = patternS.matcher(surname);
 		if (!matcherS.matches()) {
 			result = false;
@@ -44,7 +44,7 @@ public class ValidationDataForRegistration {
 		if (email.trim().isEmpty()) {
 			result = false;
 		}
-		
+
 		Matcher matcherE = patternE.matcher(email);
 		if (!matcherE.matches()) {
 			result = false;
@@ -56,7 +56,7 @@ public class ValidationDataForRegistration {
 		if (login.trim().isEmpty()) {
 			result = false;
 		}
-		
+
 		Matcher matcherL = patternL.matcher(login);
 		if (!matcherL.matches()) {
 			result = false;
@@ -68,13 +68,11 @@ public class ValidationDataForRegistration {
 		if (password.trim().isEmpty()) {
 			result = false;
 		}
-		
+
 		Matcher matcherP = patternP.matcher(password);
 		if (!matcherP.matches()) {
 			result = false;
 		}
 		return result;
 	}
-
-
 }

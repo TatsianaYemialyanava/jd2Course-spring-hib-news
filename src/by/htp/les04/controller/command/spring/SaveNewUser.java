@@ -22,7 +22,7 @@ public class SaveNewUser {
 	@RequestMapping(params = {"command=savenewuser"})
 	public String execute(@ModelAttribute("User") User user, Model theModel) throws ServletException, IOException, ServiceException {
 		try {
-			
+
 			System.out.println(user.toString());
 
 			userService.createUser(user);

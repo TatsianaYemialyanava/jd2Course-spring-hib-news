@@ -2,7 +2,6 @@ package by.htp.les04.controller.command.spring;
 
 import java.io.IOException;
 import java.security.Principal;
-
 import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,10 +22,6 @@ public class GoToFullNewsPage {
 	
 	@RequestMapping(params = {"command=go_to_full_news_page"})
 	public String execute(@ModelAttribute("News") News news, Model theModel, Principal principal) throws ServletException, IOException, ServiceException {
-
-		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
-			return;
-		}*/
 		
 		News singleNews = newsService.getOne(news.getId());
 		

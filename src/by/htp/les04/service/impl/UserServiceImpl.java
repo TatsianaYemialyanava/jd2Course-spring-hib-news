@@ -57,8 +57,6 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		return user;
 	}
 
-
-
 	@Override
 	public void createUser(User userInfo) throws ServiceException {
 
@@ -77,10 +75,5 @@ public class UserServiceImpl implements UserService, UserDetailsService {
 		}catch (DAOException e) {
 			throw new ServiceException (e.getMessage(), e);
 		}
-
 	}
-
-
-
-
 }

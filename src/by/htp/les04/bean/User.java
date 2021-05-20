@@ -157,7 +157,5 @@ public class User implements Serializable {
 				"email: " + this.email + "\n" + 
 				"login: " + this.login + "\n" + 
 				"role: " + this.role;
-
 	}
-
 }

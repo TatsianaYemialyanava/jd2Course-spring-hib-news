@@ -2,7 +2,6 @@ package by.htp.les04.controller.command.spring;
 
 import java.io.IOException;
 import java.security.Principal;
-
 import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,16 +23,10 @@ public class DeleteNews {
 	@RequestMapping(params = {"command=delete_news"})
 	public String execute(@ModelAttribute("id") News news, Model theModel, Principal principal) throws ServletException, IOException, ServiceException {
 
-		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
-			return;
-		}*/
-		
 		newsService.deleteNews(news.getId());
-		
+
 		theModel.addAttribute(MESSAGE,"News was deleted");
 
 		return REDIRECT_PREFIX + REDIRECT_FROM_DELETE_NEWS_TO_MAIN_PAGE;
-
-
 	}
 }

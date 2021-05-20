@@ -13,7 +13,7 @@ public class GoToErrorPage {
 
 	@RequestMapping(params = {"command=go_to_error_page"})
 	public String execute() throws ServletException, IOException, ServiceException {
-		
+
 		return REQUESTDISPATCHER_FROM_GO_TO_ERROR_PAGE_TO_ERROR_PAGE;
 	}
 }

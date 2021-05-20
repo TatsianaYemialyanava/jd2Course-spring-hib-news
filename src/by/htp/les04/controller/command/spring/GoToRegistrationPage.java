@@ -1,4 +1,4 @@
- package by.htp.les04.controller.command.spring;
+package by.htp.les04.controller.command.spring;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -12,12 +12,12 @@ import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 @Controller
 @RequestMapping("/AnonymousController")
 public class GoToRegistrationPage {
-	
+
 	@RequestMapping(params = {"command=registration"})
 	public String execute(Model theModel, Principal principal) throws ServletException, IOException {
 		User user = new User();
 		theModel.addAttribute(USER, user);
-		
+
 		return REQUESTDISPATCHER_FROM_GO_TO_REGISTRATION_PAGE_TO_REGISTRATION;
 	}
 }

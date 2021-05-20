@@ -33,18 +33,15 @@
 					</font>
 				</div>
 			</c:if>
-
 			<br />
 		</h1>
-
 
 		<a href="AnonymousController?command=gotoindexpage"> 
 			<spring:message code="exceptionPage.backToMainPage" />
 		</a>
 	</div>
 
-	<div class="footer"
-		style="height: 10%; position: absolute; bottom: 0px;">
+	<div class="footer" style="height: 10%; position: absolute; bottom: 0px;">
 		<h2>
 			<spring:message code="index.contacts" />: tatsiana88_88@tut.by
 		</h2>

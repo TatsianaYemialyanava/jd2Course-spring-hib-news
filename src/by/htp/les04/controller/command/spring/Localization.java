@@ -5,7 +5,6 @@ import javax.servlet.ServletException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-
 import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 
 @Controller
@@ -18,5 +17,4 @@ public class Localization {
 		
 		return REDIRECT_PREFIX + commandForRedirect;
 	}
-
 }

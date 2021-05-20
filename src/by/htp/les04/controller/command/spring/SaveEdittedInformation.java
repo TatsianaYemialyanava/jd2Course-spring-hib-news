@@ -2,7 +2,6 @@ package by.htp.les04.controller.command.spring;
 
 import java.io.IOException;
 import java.security.Principal;
-
 import javax.servlet.ServletException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,22 +16,18 @@ import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
 @Controller
 @RequestMapping("/AdminController")
 public class SaveEdittedInformation {
-	
+
 	@Autowired
 	private NewsService newsService;
-	
+
 	@RequestMapping(params = {"command=save_new_information"})
 	public String execute(@ModelAttribute("singleNews") News news, Model theModel, Principal principal) throws ServletException, IOException, ServiceException {
 
-		/*if (CheckAuthorisationSession.redirectIfNotAuthorisated(request, response)) {
-			return;
-		}*/
-		
 		int idNews = news.getId();
 		String titleNews = news.getTitle();
 		String briefNews = news.getBrief();
 		String contentNews = news.getContent();
-			
+
 		newsService.updateNews(idNews, titleNews, briefNews, contentNews);
 		theModel.addAttribute(MESSAGE, "news has been saved");
 		return REDIRECT_PREFIX + REDIRECT_FROM_SAVE_EDDITED_INFORMATION_TO_GO_TO_FULL_NEWS_PAGE + idNews;

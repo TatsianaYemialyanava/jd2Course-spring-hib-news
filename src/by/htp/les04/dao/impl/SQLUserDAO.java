@@ -14,8 +14,6 @@ import by.htp.les04.dao.UserDAO;
 @Transactional()
 public class SQLUserDAO implements UserDAO {
 
-
-	
 	@Autowired
 	private SessionFactory sessionFactory;
 

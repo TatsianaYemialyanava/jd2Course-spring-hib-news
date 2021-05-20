@@ -11,10 +11,10 @@ import javax.servlet.ServletResponse;
 
 public class CharsetFilter implements Filter {
 	public static final String CHARACTER_ENCODING = "characterEncoding";
-	
+
 	private String encoding;
 	private ServletContext contex;
-	
+
 	public void init(FilterConfig fConfig) throws ServletException{
 		encoding = fConfig.getInitParameter(CHARACTER_ENCODING);
 		contex = fConfig.getServletContext();
@@ -26,10 +26,9 @@ public class CharsetFilter implements Filter {
 		request.setCharacterEncoding(encoding);
 		response.setCharacterEncoding(encoding);
 		contex.log("Charset was set.");
-		
+
 		chain.doFilter(request, response);
 	}
-	
 	public void destroy() {}
 }
 

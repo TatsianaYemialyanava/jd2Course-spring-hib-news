@@ -14,10 +14,10 @@ import by.htp.les04.dao.NewsDAO;
 @Repository
 @Transactional()
 public class SQLNewsDAO implements NewsDAO  {
-	
+
 	@Autowired
 	private SessionFactory sessionFactory;
-	
+
 	@Override
 	public List<News> all() throws DAOException {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -25,14 +25,14 @@ public class SQLNewsDAO implements NewsDAO  {
 		List<News> news = theQuery.getResultList();
 		return news;
 	}
-	
+
 	@Override
 	public News getOne(int id) throws DAOException {
 		Session currentSession = sessionFactory.getCurrentSession();
 		News theNews = currentSession.get(News.class, id);
 		return theNews;
 	}
-	
+
 	@Override
 	public void updateNews(int id, String title, String brief, String content) throws DAOException {
 		Session currentSession = sessionFactory.getCurrentSession();
@@ -45,7 +45,7 @@ public class SQLNewsDAO implements NewsDAO  {
 		theNews.setStatus("active");
 		currentSession.saveOrUpdate(theNews);
 	}
-	
+
 	@Override
 	public void deleteNews(int id) throws DAOException {
 		Session currentSession = sessionFactory.getCurrentSession();

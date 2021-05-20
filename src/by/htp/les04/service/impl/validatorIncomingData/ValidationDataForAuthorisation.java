@@ -10,7 +10,7 @@ public class ValidationDataForAuthorisation {
 	private static Pattern patternP = Pattern.compile("[-A-Za-z1-9!@#$%^&*()]+");		
 
 	public static boolean validateDataForAuthorisation(String login, String password) {
-		
+
 		boolean result = true;
 
 		if (login==null || "".equals(login)) {

@@ -13,7 +13,7 @@ import org.springframework.web.servlet.handler.SimpleMappingExceptionResolver;
 	private static Logger logger = LogManager.getLogger();
 	
 	@Override
-    protected ModelAndView doResolveException(HttpServletRequest req, HttpServletResponse resp, Object handler,Exception ex) {
+    protected ModelAndView doResolveException(HttpServletRequest req, HttpServletResponse resp, Object handler, Exception ex) {
 		ModelAndView modelAndView = new ModelAndView();
 	    modelAndView.setViewName(REDIRECT_PREFIX + REDIRECT_TO_ERROR_PAGE);
 	    modelAndView.addObject("message", ex.getMessage());
