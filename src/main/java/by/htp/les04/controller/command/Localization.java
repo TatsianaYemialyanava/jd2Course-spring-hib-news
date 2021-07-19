@@ -1,11 +1,11 @@
-package by.htp.les04.controller.command.spring;
+package by.htp.les04.controller.command;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
+import static by.htp.les04.controller.command.ControllerLevelConstant.*;
 
 @Controller
 @RequestMapping(value={"/AnonymousController","/Controller","/AdminController"})

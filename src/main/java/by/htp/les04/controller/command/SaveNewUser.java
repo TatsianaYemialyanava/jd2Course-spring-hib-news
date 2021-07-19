@@ -1,4 +1,4 @@
-package by.htp.les04.controller.command.spring;
+package by.htp.les04.controller.command;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import by.htp.les04.bean.User;
 import by.htp.les04.service.ServiceException;
 import by.htp.les04.service.UserService;
-import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
+import static by.htp.les04.controller.command.ControllerLevelConstant.*;
 
 @Controller
 @RequestMapping("/AnonymousController")

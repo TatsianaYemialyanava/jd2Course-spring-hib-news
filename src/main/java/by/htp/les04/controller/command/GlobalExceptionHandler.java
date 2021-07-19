@@ -1,6 +1,6 @@
-package by.htp.les04.controller.command.spring;
+package by.htp.les04.controller.command;
 
-import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
+import static by.htp.les04.controller.command.ControllerLevelConstant.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.logging.log4j.*;

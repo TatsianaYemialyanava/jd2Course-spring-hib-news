@@ -1,4 +1,4 @@
-package by.htp.les04.controller.command.spring;
+package by.htp.les04.controller.command;
 
 public interface ControllerLevelConstant {
 	//PARAMS

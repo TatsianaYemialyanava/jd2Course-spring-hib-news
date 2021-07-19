@@ -30,7 +30,7 @@
 	</mvc:interceptors>
 	
   	<bean class="org.springframework.context.support.ResourceBundleMessageSource" id="messageSource"> 
-		<property name="basenames" value="localization/interface" />
+		<property name="basenames" value="interface" />
 	</bean>
 	
 	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
@@ -75,8 +75,7 @@
  
     <bean id="userCreationLoggingAspect" class="by.htp.les04.aspect.UserCreationLoggingAspect" />
     
-	<bean id="GlobalExceptionHandler" class="by.htp.les04.controller.command.spring.GlobalExceptionHandler">
-	</bean>
+	<bean id="GlobalExceptionHandler" class="by.htp.les04.controller.command.GlobalExceptionHandler" />
 
  	<!-- Spring Security -->
  	<bean class="org.springframework.security.web.access.expression.DefaultWebSecurityExpressionHandler" />

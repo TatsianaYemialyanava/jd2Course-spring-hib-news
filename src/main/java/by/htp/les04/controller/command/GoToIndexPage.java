@@ -1,4 +1,4 @@
-package by.htp.les04.controller.command.spring;
+package by.htp.les04.controller.command;
 
 import java.security.Principal;
 import java.util.List;
@@ -10,7 +10,7 @@ import by.htp.les04.bean.News;
 import by.htp.les04.bean.User;
 import by.htp.les04.service.NewsService;
 import by.htp.les04.service.ServiceException;
-import static by.htp.les04.controller.command.spring.ControllerLevelConstant.*;
+import static by.htp.les04.controller.command.ControllerLevelConstant.*;
 
 @Controller
 @RequestMapping("/AnonymousController")
